@@ -2,7 +2,7 @@
 Big data final project
 
 load image noteboook is to load the images and convert the labels into yolov5 format and packed as a tar file
-
+ROI_detection_yolo_training notebook is to run the training at Azure.
 
 1.
 Open your terminal and make a new directory named finalproject (or any other name of your choice). Switch into the directory and then clone the yolo repository from GitHub:
