@@ -57,7 +57,7 @@ print(f"yolov5 enviroment setup complete. Using torch {torch.__version__} ({torc
 # Generate yaml config file for run on Azure GPU
 yolo_yaml = os.path.join('.', 'boeing_yolov5.yaml')
 
-tags = ['Defect','ROI']
+tags = 'ROI'
 
 with open(yolo_yaml, 'w') as yamlout:
     yaml.dump(
@@ -74,7 +74,7 @@ with open(yolo_yaml, 'w') as yamlout:
 os.system('cp ./boeing_yolov5.yaml ./outputs/boeing_yolov5.yaml')
 
 
-os.system('python yolov5/train.py --img 640 --batch 16 --epochs 100 --data ./boeing_yolov5.yaml --weights yolov5s.pt')
+os.system('python yolov5/train.py --img 640 --batch 30 --epochs 100 --data ./boeing_yolov5.yaml --weights yolov5s.pt')
 os.system('python yolov5/detect.py --weights ./yolov5/runs/train/exp/weights/best.pt --iou 0.05 --save-txt --source ./data_train_images/test/images/')
 # Copy to the outputs folder so that the results get saved as part of the AML run
 os.system('cp -r ./yolov5/runs ./outputs/')
